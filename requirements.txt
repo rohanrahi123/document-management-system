@@ -4,3 +4,4 @@ setuptools
 rapidfuzz
 pdfplumber
 spacy
+requests
