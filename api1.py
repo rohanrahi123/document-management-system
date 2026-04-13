@@ -24,7 +24,11 @@ def verify_api_key(request):
 app = Flask(__name__, template_folder=".")
 
 # Load NLP model (optional support)
-nlp = spacy.load("en_core_web_sm")
+try:
+    import spacy
+    nlp = spacy.load("en_core_web_sm")
+except:
+    nlp = None
 
 # Base directory
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
