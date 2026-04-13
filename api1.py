@@ -70,13 +70,15 @@ def clean_text(text):
 # TEXT EXTRACTION (UPDATED WITH OCR SUPPORT)
 
 
+import requests
+
 def extract_text_from_pdf(file_path):
 
     full_text = ""
 
-    # 1️ Normal Text Extraction (Existing)
-    
+    # 1️⃣ Try normal extraction
     try:
+        import pdfplumber
         with pdfplumber.open(file_path) as pdf:
             for page in pdf.pages:
                 text = page.extract_text()
@@ -84,6 +86,33 @@ def extract_text_from_pdf(file_path):
                     full_text += text + "\n"
     except:
         pass
+
+    # 2️⃣ If no text → use OCR API
+    if len(full_text.strip()) < 30:
+
+        print("🔍 Using OCR API...")
+
+        try:
+            url = "https://api.ocr.space/parse/image"
+
+            with open(file_path, 'rb') as f:
+                response = requests.post(
+                    url,
+                    files={"file": f},
+                    data={
+                        "apikey": "helloworld",  # free key
+                        "language": "eng"
+                    }
+                )
+
+            result = response.json()
+
+            full_text = result["ParsedResults"][0]["ParsedText"]
+
+        except Exception as e:
+            print("❌ OCR API Failed:", e)
+
+    return full_text.strip()
 
     
     # 2️ If Less Text → Assume Scanned PDF
