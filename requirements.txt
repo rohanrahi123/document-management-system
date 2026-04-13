@@ -3,3 +3,4 @@ gunicorn
 setuptools
 rapidfuzz
 pdfplumber
+spacy
