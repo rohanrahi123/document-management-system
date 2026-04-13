@@ -4,14 +4,12 @@ from rapidfuzz import fuzz
 import os
 import json
 import uuid
-import pdfplumber
+
 import re
 import spacy
 
 #  NEW (OCR SUPPORT)
-import pytesseract
-from pdf2image import convert_from_path
-from PIL import Image
+
 
 API_KEY = "mysecureapikey123"
 
@@ -44,7 +42,7 @@ if not os.path.exists(JSON_FILE):
         json.dump([], f)
 
 # 🔥 SET TESSERACT PATH (CHANGE IF DIFFERENT)
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
 
 # UTILITY FUNCTIONS
 
