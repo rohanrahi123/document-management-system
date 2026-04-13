@@ -1,0 +1,38 @@
+[
+    {
+        "id": "078d16bc-0382-43d8-a8ad-ce2518707b9a",
+        "file_name": "comp_pdf (11).pdf",
+        "document_type": "Invoice",
+        "fields": {
+            "Detected Document Type": "Invoice",
+            "Invoice Number": [
+                "GEM-68092821"
+            ],
+            "GSTIN": [
+                "01NUBPS9778F1ZZ"
+            ]
+        },
+        "full_text": "Invoice\nGeM Invoice No: GEM-68092821\nSELLER DETAILS:\nGeM Invoice Date: 27-Dec-2025\nAddress: ACESSORIES PROFESSOR\n554, SARFRAZ MANZIL, Hamdaniya Colony Bemina Khumani\nOrder No: GEMC-511687759941054\nChowk road, Masjid Abu Talib, Srinagar, JAMMU & KASHMIR,\nOrder Date: 26-Dec-2025\n190018\nEmail Id: profaccc121@gmail.com\nContact No : 07889430183\nClick here to download seller invoice\nGSTIN: 01NUBPS9778F1ZZ\nBILL TO:\nBuyer Name: Fasal Hassan Bhat , Office Asstant PMO\nSHIPPING TO: Address: Red Cross Road, Gaw Kadal, Srinagar Srinagar\nConsignee Name: Fasal Hassan Bhat JAMMU & KASHMIR 190001 Animal and Sheep Husbandry\nAddress: Red Cross Road, Gaw Kadal, Srinagar Srinagar Department Jammu and Kashmir Directorate of Animal\nJAMMU & KASHMIR 190001 Husbandry Srinagar\nGSTIN: 01AMRP12269F1DW\nContact No: 0194-2455091-127 Department: Animal and Sheep Husbandry Department Jammu\nGSTIN: 01AMRP12269F1DW and Kashmir\nOffice Zone:Director Animal Husbandry Kashmir\nOrganisation: Directorate of Animal Husbandry Srinagar\nSeller GST Tax Invoice Number Seller GST Tax Invoice Date Dispatch Mode Dispatch Date\nPR485 27-Dec-2025 Manual 27-Dec-2025\nPlace of Supply Place of Supply State (State/UT Code) Supply Type Buyer GSTIN Number\nBuyer Location Jammu and Kashmir / 01 Intra-State 01AMRP12269F1DW\nDelivery Instruction NA\nMeasuremen Supplied Total Price inclusive all\nProduct Description HSN Code Unit Price\nt Unit Qty Taxes\nUnbranded Waste Container made\nof High-Density Polyethylene 39249090 pieces 2 Rs. 850.000 Rs. 1700.000\n(HDPE) with a Capacity of 60 liter\nTaxable Amount Rs. 1440.68\nTax Rate (%) 18\nCGST Rs. 129.660\nSGST/UTGST Rs. 129.660\nCess Rate (%) 0.00\nCess Amount Rs. 0.00\nCess in Quantum Rs. 0.00\nRounding Off Rs. 0.00\nGrand Total Rs. 1700.000\nI / We hereby declare that our maximum turn over during last three years is only Rs. 60021 and hence we are not covered under\nthe ambit of GST e-invoicing provisions. We do hereby declare that once the said provisions are made applicable to us, we shall\nissue the duly complied e-Invoice under GST Law.\nAll GST invoice or document issued by us shall be properly and timely reported under respective returns under GST by us in line\nwith the notified provisions and the applicable tax collected from Buyer shall be timely and correctly paid to the respective\nGovernment by us.\nIn case the Input Tax Credit of GST is denied or demand is recovered from Buyer on account of any act/omission of us in this\nregard, we shallbe liable in respect of all claims of tax, penalty and/or interest, loss, damages, costs, expenses and liability that\nmay arise due to such non-compliance. Buyer shall have the right to recover such amount from any payments due to us or from\nPerformance Security, or any other legal recourse from us.\nThe GST rate applicable as on the bid end date shall remain valid throughout the contract period.\nIf there is a statutory revision in the GST rate after the bid end date but within the agreed delivery or service period, the differe\nntial GST amount may be reimbursed to the seller upon submission of:\nrelevant statutory notification or circular,\nsupporting tax invoice, and\nan anti-profiteering undertaking confirming that the benefit of any tax reduction or input tax credit has been duly passed\non.\nNo reimbursement of GST differential shall be allowed for supplies or services delivered beyond the agreed timelines where\npenalties or contractual remedies apply.\nINK SIGNED SIGNATURES ARE NOT REQUIRED IN SYSTEM GENERATED DOCUMENTS"
+    },
+    {
+        "id": "9620c8f8-797c-403e-8013-630b29852ea2",
+        "file_name": "verma adhar.pdf",
+        "document_type": "Aadhaar Card",
+        "fields": {
+            "Detected Document Type": "Aadhaar Card",
+            "Aadhaar Number": [
+                "7824 1308 8036"
+            ],
+            "Name": [
+                "authentication, or scanning of QR code / offline XML)."
+            ],
+            "Date of Birth": [
+                "11/11/2005"
+            ],
+            "Gender": [
+                "MALE"
+            ]
+        },
+        "full_text": "Aryan Verma\nara FAR DOB: 11/11/2005\nWea! MALE\n\nSvar Geers ay rey &, ererftererr ay orrerferies emt orl 1\nsae sya eran (siete wafers, a ase ahe/\nSteen weereme a2 <br) & ere: fen ora enfke |\n\nAadhaar is proof of identity, not of citizenship\nor date of birth, It should be used with verification (online\nauthentication, or scanning of QR code / offline XML).\n\n7824 1308 8036"
+    }
+]
