@@ -436,9 +436,11 @@ def upload_document():
     write_documents(documents)
 
     return jsonify({
-        "message": "Document uploaded successfully.",
-        "document_type_detected": doc_type
-    })
+    "message": "Document uploaded successfully.",
+    "document_type_detected": doc_type,
+    "fields": fields,
+    "full_text": full_text
+})
 
 
 @app.route("/documents")
