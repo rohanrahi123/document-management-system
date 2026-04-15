@@ -42,7 +42,6 @@
 </div>
 
 
-// This Section for your own sytem if you want to upload , store and retrive document
 
     
 <!-- Search Section -->
@@ -88,68 +87,11 @@
 <script>
 
 // ================= Upload =================
-// async function uploadDocument() {
-
-//     const fileInput = document.getElementById("fileInput");
-//     const statusDiv = document.getElementById("uploadStatus");
-//     const uploadBtn = document.getElementById("uploadBtn");
-
-//     if (!fileInput.files.length) {
-//         alert("Please select a file.");
-//         return;
-//     }
-
-//     const formData = new FormData();
-//     formData.append("file", fileInput.files[0]);
-
-//     statusDiv.style.display = "block";
-//     statusDiv.className = "alert alert-info";
-//     statusDiv.innerHTML = `
-//         <div class="d-flex align-items-center">
-//             <div class="spinner-border spinner-border-sm me-2"></div>
-//             Processing document...
-//         </div>
-//     `;
-
-//     uploadBtn.disabled = true;
-
-//     try {
-//         const response = await fetch("/upload", {
-//             method: "POST",
-//             body: formData
-//         });
-
-//         const result = await response.json();
-
-//         if (response.ok) {
-//             statusDiv.className = "alert alert-success";
-//             statusDiv.innerHTML = "Document uploaded successfully.";
-
-//             fileInput.value = "";
-//             loadDocuments();
-
-//             setTimeout(() => {
-//                 statusDiv.style.display = "none";
-//             }, 3000);
-
-//         } else {
-//             statusDiv.className = "alert alert-danger";
-//             statusDiv.innerHTML = result.error;
-//         }
-
-//     } catch (error) {
-//         statusDiv.className = "alert alert-danger";
-//         statusDiv.innerHTML = "Server internal error.";
-//     }
-
-//     uploadBtn.disabled = false;
-// }
-
 async function uploadDocument() {
 
     const fileInput = document.getElementById("fileInput");
     const statusDiv = document.getElementById("uploadStatus");
-    const detailsSection = document.getElementById("detailsSection");
+    const uploadBtn = document.getElementById("uploadBtn");
 
     if (!fileInput.files.length) {
         alert("Please select a file.");
@@ -161,7 +103,14 @@ async function uploadDocument() {
 
     statusDiv.style.display = "block";
     statusDiv.className = "alert alert-info";
-    statusDiv.innerHTML = "Processing document...";
+    statusDiv.innerHTML = `
+        <div class="d-flex align-items-center">
+            <div class="spinner-border spinner-border-sm me-2"></div>
+            Processing document...
+        </div>
+    `;
+
+    uploadBtn.disabled = true;
 
     try {
         const response = await fetch("/upload", {
@@ -172,32 +121,15 @@ async function uploadDocument() {
         const result = await response.json();
 
         if (response.ok) {
-
             statusDiv.className = "alert alert-success";
-            statusDiv.innerHTML = "Processed successfully";
+            statusDiv.innerHTML = "Document uploaded successfully.";
 
-            // 🔥 SHOW RESULT DIRECTLY
-            let html = `
-                <h5>Document Type: ${result.document_type}</h5>
-                <table class="table table-bordered">
-            `;
+            fileInput.value = "";
+            loadDocuments();
 
-            for (const key in result.fields) {
-                html += `<tr>
-                    <th>${key}</th>
-                    <td>${result.fields[key]}</td>
-                </tr>`;
-            }
-
-            html += `</table>
-
-                <h6>Extracted Text:</h6>
-                <div style="max-height:300px; overflow:auto; border:1px solid #ccc; padding:10px;">
-                    ${result.full_text}
-                </div>
-            `;
-
-            detailsSection.innerHTML = html;
+            setTimeout(() => {
+                statusDiv.style.display = "none";
+            }, 3000);
 
         } else {
             statusDiv.className = "alert alert-danger";
@@ -206,9 +138,76 @@ async function uploadDocument() {
 
     } catch (error) {
         statusDiv.className = "alert alert-danger";
-        statusDiv.innerHTML = "Server error.";
+        statusDiv.innerHTML = "Server internal error.";
     }
+
+    uploadBtn.disabled = false;
 }
+
+// async function uploadDocument() {
+
+//     const fileInput = document.getElementById("fileInput");
+//     const statusDiv = document.getElementById("uploadStatus");
+//     const detailsSection = document.getElementById("detailsSection");
+
+//     if (!fileInput.files.length) {
+//         alert("Please select a file.");
+//         return;
+//     }
+
+//     const formData = new FormData();
+//     formData.append("file", fileInput.files[0]);
+
+//     statusDiv.style.display = "block";
+//     statusDiv.className = "alert alert-info";
+//     statusDiv.innerHTML = "Processing document...";
+
+//     try {
+//         const response = await fetch("/upload", {
+//             method: "POST",
+//             body: formData
+//         });
+
+//         const result = await response.json();
+
+//         if (response.ok) {
+
+//             statusDiv.className = "alert alert-success";
+//             statusDiv.innerHTML = "Processed successfully";
+
+//             // 🔥 SHOW RESULT DIRECTLY
+//             let html = `
+//                 <h5>Document Type: ${result.document_type}</h5>
+//                 <table class="table table-bordered">
+//             `;
+
+//             for (const key in result.fields) {
+//                 html += `<tr>
+//                     <th>${key}</th>
+//                     <td>${result.fields[key]}</td>
+//                 </tr>`;
+//             }
+
+//             html += `</table>
+
+//                 <h6>Extracted Text:</h6>
+//                 <div style="max-height:300px; overflow:auto; border:1px solid #ccc; padding:10px;">
+//                     ${result.full_text}
+//                 </div>
+//             `;
+
+//             detailsSection.innerHTML = html;
+
+//         } else {
+//             statusDiv.className = "alert alert-danger";
+//             statusDiv.innerHTML = result.error;
+//         }
+
+//     } catch (error) {
+//         statusDiv.className = "alert alert-danger";
+//         statusDiv.innerHTML = "Server error.";
+//     }
+// }
 
 
 // ================= Load Documents =================
