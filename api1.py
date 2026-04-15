@@ -417,27 +417,34 @@ def upload_document():
     fields = extract_structured_fields(full_text)
     doc_type = detect_document_type(full_text)
 
-    documents = read_documents()
+    # documents = read_documents()
 
-    if is_duplicate(full_text, fields, documents):
-      return jsonify({
-        "error": "This document is already uploaded (Duplicate detected)."
-    })
+    # if is_duplicate(full_text, fields, documents):
+    #   return jsonify({
+    #     "error": "This document is already uploaded (Duplicate detected)."
+    # })
 
-    document_data = {
-        "id": str(uuid.uuid4()),
-        "file_name": file.filename,
-        "document_type": doc_type,
-        "fields": fields,
-        "full_text": full_text
-    }
+    # document_data = {
+    #     "id": str(uuid.uuid4()),
+    #     "file_name": file.filename,
+    #     "document_type": doc_type,
+    #     "fields": fields,
+    #     "full_text": full_text
+    # }
 
-    documents.append(document_data)
-    write_documents(documents)
+    # documents.append(document_data)
+    # write_documents(documents)
+
+#     return jsonify({
+#     "message": "Processed successfully",
+#     "document_type": doc_type,
+#     "fields": fields,
+#     "full_text": full_text
+# })
 
     return jsonify({
     "message": "Document uploaded successfully.",
-    "document_type_detected": doc_type,
+   "document_type": doc_type,
     "fields": fields,
     "full_text": full_text
 })
