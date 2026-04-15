@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Government Document API Dashboard</title>
@@ -30,7 +30,7 @@
 <h2 class="mb-4">Government Document API Dashboard</h2>
 
 <!-- Upload Section -->
-<!-- <div class="card p-3 mb-4">
+<div class="card p-3 mb-4">
     <h5>Upload Document</h5>
 
     <input type="file" id="fileInput" class="form-control mb-2">
@@ -39,13 +39,10 @@
     </button>
 
     <div id="uploadStatus" class="mt-3" style="display:none;"></div>
-</div> -->
+</div>
 
-
-
-    
-Search Section -->
-<!-- <div class="card p-3 mb-4">
+<!-- Search Section -->
+<div class="card p-3 mb-4">
     <h5>Search Document</h5>
 
     <div class="input-group">
@@ -57,18 +54,16 @@ Search Section -->
     </div>
 </div>
 
-<div class="row"> --> -->
+<div class="row">
 
-     <!-- File List -->
-    <!-- <div class="col-md-4">
+    <!-- File List -->
+    <div class="col-md-4">
         <h5>Uploaded Files</h5>
         <div id="fileList">Loading...</div>
-    </div> -->
-
-    
+    </div>
 
     <!-- Details -->
-    <!-- <div class="col-md-8">
+    <div class="col-md-8">
         <h5>Document Details</h5>
 
         <div id="detailsSection">
@@ -84,7 +79,7 @@ Search Section -->
 
 </div>
 
-<script> -->
+<script>
 
 // ================= Upload =================
 async function uploadDocument() {
@@ -104,11 +99,11 @@ async function uploadDocument() {
     statusDiv.style.display = "block";
     statusDiv.className = "alert alert-info";
     statusDiv.innerHTML = `
-        <!-- <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center">
             <div class="spinner-border spinner-border-sm me-2"></div>
             Processing document...
         </div>
-    `; -->
+    `;
 
     uploadBtn.disabled = true;
 
@@ -144,71 +139,6 @@ async function uploadDocument() {
     uploadBtn.disabled = false;
 }
 
-async function uploadDocument() {
-
-    const fileInput = document.getElementById("fileInput");
-    const statusDiv = document.getElementById("uploadStatus");
-    const detailsSection = document.getElementById("detailsSection");
-
-    if (!fileInput.files.length) {
-        alert("Please select a file.");
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append("file", fileInput.files[0]);
-
-    statusDiv.style.display = "block";
-    statusDiv.className = "alert alert-info";
-    statusDiv.innerHTML = "Processing document...";
-
-    try {
-        const response = await fetch("/upload", {
-            method: "POST",
-            body: formData
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-
-            statusDiv.className = "alert alert-success";
-            statusDiv.innerHTML = "Processed successfully";
-
-            // 🔥 SHOW RESULT DIRECTLY
-            let html = `
-                <!-- <h5>Document Type: ${result.document_type}</h5>
-                <table class="table table-bordered">
-            `;
-
-            for (const key in result.fields) {
-                html += `<tr>
-                    <th>${key}</th>
-                    <td>${result.fields[key]}</td>
-                </tr>`;
-            } -->
-
-            <!-- html += `</table>
-
-                <h6>Extracted Text:</h6>
-                <div style="max-height:300px; overflow:auto; border:1px solid #ccc; padding:10px;">
-                    ${result.full_text}
-                </div>
-            `; -->
-
-            detailsSection.innerHTML = html;
-
-        } else {
-            statusDiv.className = "alert alert-danger";
-            statusDiv.innerHTML = result.error;
-        }
-
-    } catch (error) {
-        statusDiv.className = "alert alert-danger";
-        statusDiv.innerHTML = "Server error.";
-    }
-}
-
 
 // ================= Load Documents =================
 async function loadDocuments() {
@@ -226,7 +156,7 @@ async function loadDocuments() {
 
     data.forEach(doc => {
         fileList.innerHTML += `
-            <!-- <div class="border-bottom pb-2 mb-2">
+            <div class="border-bottom pb-2 mb-2">
                 <strong>${doc.file_name}</strong><br>
                 <small>${doc.document_type}</small><br>
 
@@ -242,10 +172,10 @@ async function loadDocuments() {
             </div>
         `;
     });
-} -->
+}
 
 
-//================= View Document =================   // This is also for your own system for viewing uploaded document
+// ================= View Document =================
 async function viewDocument(id) {
 
     const response = await fetch("/document/" + id);
@@ -257,19 +187,19 @@ async function viewDocument(id) {
     backBtn.style.display = "inline-block";
 
     let table = `
-        <!-- <table class="table table-bordered">
+        <table class="table table-bordered">
             <tr><th>ID</th><td>${doc.id}</td></tr>
             <tr><th>File Name</th><td>${doc.file_name}</td></tr>
             <tr><th>Document Type</th><td>${doc.document_type}</td></tr>
-    `; -->
+    `;
 
     if (doc.fields) {
         for (const key in doc.fields) {
-            <!-- table += `<tr><th>${key}</th><td>${JSON.stringify(doc.fields[key]).replace(/[\[\]"]/g, '')}</td></tr>`;
+            table += `<tr><th>${key}</th><td>${JSON.stringify(doc.fields[key]).replace(/[\[\]"]/g, '')}</td></tr>`;
         }
-    } -->
+    }
 
-    <!-- table += `</table>
+    table += `</table>
 
         <button class="btn btn-warning me-2"
                 onclick="toggleFullText()">
@@ -289,7 +219,7 @@ async function viewDocument(id) {
                     overflow-y:auto;
                     white-space: pre-wrap;">
         </div>
-    `; -->
+    `;
 
     detailsSection.innerHTML = table;
 
@@ -316,7 +246,7 @@ function toggleFullText() {
 }
 
 
-// ================= Delete =================  
+// ================= Delete =================
 async function deleteDocument(id) {
 
     if (!confirm("Are you sure you want to delete this document?"))
@@ -348,7 +278,7 @@ async function searchDocument() {
     if (data.message || data.length === 0) {
 
     fileList.innerHTML = `
-        <!-- <div class="p-2">
+        <div class="p-2">
             <p>No document found.</p>
             <button class="btn btn-secondary btn-sm"
                     onclick="goBackToMain()">
@@ -357,9 +287,9 @@ async function searchDocument() {
         </div>
     `;
     return;
-} -->
+}
 
-    <!-- data.forEach(doc => {
+    data.forEach(doc => {
         fileList.innerHTML += `
             <div class="border-bottom pb-2 mb-2">
                 <strong>${doc.file_name}</strong><br>
@@ -376,7 +306,7 @@ async function searchDocument() {
                 </button>
             </div>
         `;
-    }); -->
+    });
 }
 function goBackToMain() {
     document.getElementById("searchInput").value = "";
@@ -400,83 +330,6 @@ fetch("http://localhost:5000/api/document?key=ABCDE1234F", {
 // Init
 loadDocuments();
 
-<!-- </script>
-
-</body>
-</html> --> -->
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>OCR Document Tool</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body class="container mt-5">
-
-<h2 class="mb-4">📄 OCR Document Tool</h2>
-
-<div class="card p-3">
-    <input type="file" id="fileInput" class="form-control mb-3">
-    <button onclick="uploadFile()" class="btn btn-primary">Upload & Process</button>
-
-    <div id="status" class="mt-3"></div>
-</div>
-
-<div id="result" class="mt-4"></div>
-
-<script>
-async function uploadFile() {
-
-    let fileInput = document.getElementById("fileInput");
-    let status = document.getElementById("status");
-    let resultDiv = document.getElementById("result");
-
-    if (!fileInput.files.length) {
-        alert("Select file first");
-        return;
-    }
-
-    let formData = new FormData();
-    formData.append("file", fileInput.files[0]);
-
-    status.innerHTML = "⏳ Processing...";
-    resultDiv.innerHTML = "";
-
-    try {
-        let response = await fetch("/upload", {
-            method: "POST",
-            body: formData
-        });
-
-        let data = await response.json();
-
-        if (!response.ok) {
-            status.innerHTML = "❌ " + data.error;
-            return;
-        }
-
-        status.innerHTML = "✅ Done";
-
-        let html = `
-            <h4>Document Type: ${data.document_type}</h4>
-            <h5>Extracted Fields:</h5>
-            <pre>${JSON.stringify(data.fields, null, 2)}</pre>
-
-            <h5>Extracted Text:</h5>
-            <div style="border:1px solid #ccc; padding:10px; max-height:300px; overflow:auto;">
-                ${data.full_text}
-            </div>
-        `;
-
-        resultDiv.innerHTML = html;
-
-    } catch (error) {
-        status.innerHTML = "❌ Server error";
-    }
-}
 </script>
 
 </body>
